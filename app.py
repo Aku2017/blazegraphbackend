@@ -33,7 +33,7 @@ elif ENV == "prod":
 else:
     ip = "default_ip"
 
-app.config['SERVER_NAME'] = ip
+# app.config['SERVER_NAME'] = ip
 
 # Configure your database
 # DATABASE_URI = 'mssql+pyodbc://username:password@server/database?driver=ODBC+Driver+17+for+SQL+Server'
