@@ -11,6 +11,7 @@ import os
 import time
 import socket
 import tempfile
+from dotenv import load_dotenv
 from flask_cors import CORS
 
 
@@ -18,6 +19,21 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+# Load .env file and environment variables
+load_dotenv()
+
+ENV = os.getenv('ENV')
+
+# Set the IP address based on the environment
+if ENV == "test":
+    ip = "localhost"
+elif ENV == "prod":
+    ip = "102.37.137.65"
+else:
+    ip = "default_ip"
+
+app.config['SERVER_NAME'] = ip
 
 # Configure your database
 # DATABASE_URI = 'mssql+pyodbc://username:password@server/database?driver=ODBC+Driver+17+for+SQL+Server'
